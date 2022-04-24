@@ -5,8 +5,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 ## PROJE İÇERİĞİ<br>
 <br>
 <br>
