@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="login_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Urun_tbl">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="urun_aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="urun_fiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="stok" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="ProjeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="login_tbl" EntityType="Self.login_tbl" />
+    <EntitySet Name="Urun_tbl" EntityType="Self.Urun_tbl" />
+  </EntityContainer>
+</Schema>

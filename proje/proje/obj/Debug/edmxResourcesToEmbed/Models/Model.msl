@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjeModelStoreContainer" CdmEntityContainer="ProjeEntities">
+    <EntitySetMapping Name="login_tbl">
+      <EntityTypeMapping TypeName="ProjeModel.login_tbl">
+        <MappingFragment StoreEntitySet="login_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun_tbl">
+      <EntityTypeMapping TypeName="ProjeModel.Urun_tbl">
+        <MappingFragment StoreEntitySet="Urun_tbl">
+          <ScalarProperty Name="stok" ColumnName="stok" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+          <ScalarProperty Name="urun_fiyat" ColumnName="urun_fiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

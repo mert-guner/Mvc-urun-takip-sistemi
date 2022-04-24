@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="login_tbl">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanici_adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Urun_tbl">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urun_adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="urun_aciklama" Type="nvarchar" MaxLength="50" />
+    <Property Name="urun_fiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="stok" Type="int" />
+  </EntityType>
+  <EntityContainer Name="ProjeModelStoreContainer">
+    <EntitySet Name="login_tbl" EntityType="Self.login_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urun_tbl" EntityType="Self.Urun_tbl" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

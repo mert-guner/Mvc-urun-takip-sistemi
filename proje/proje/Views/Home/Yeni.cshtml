@@ -1,0 +1,49 @@
+﻿@model proje.Models.Urun_tbl
+
+
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Ürün Bilgisi</h2>
+<br />
+<br />
+<br />
+
+
+@using (Html.BeginForm("Yeni", "Home", FormMethod.Post))
+{
+    <form class="form-group">
+        <div>
+            <label>Ürün Adı</label>        
+            @Html.TextBoxFor(m => m.urun_adi, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:20px;">
+            <label>Ürün Açıklaması</label>          
+            @Html.TextBoxFor(m => m.urun_aciklama, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:20px;">
+            <label>Ürün Fiyatı</label>           
+            @Html.TextBoxFor(m => m.urun_fiyat, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:20px;">
+            <label>Ürün Stoğu</label>   
+            @Html.TextBoxFor(m => m.stok, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:20px;">
+            @Html.HiddenFor(m => m.UrunID)
+            <button type="submit" class="btn btn-info">Ürünü Kaydet</button>
+            <a href="/Home/Index" class="btn btn-danger">Vazgeç</a>
+        </div>
+    </form>
+}
+
+
+

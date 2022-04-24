@@ -1,0 +1,109 @@
+﻿@using proje.Models;
+@model List<Urun_tbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2>Ürünler</h2>
+<br />
+<a class="btn btn-success" href="/Home/Yeni" data-toggle="modal" data-target="#Modal1"> Yeni Ürün Ekle</a>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="accordion-header">
+                <h2 class="modal-title" style="padding-left:50px; padding-top:50px;">Yeni Ürün Ekle</h2>
+            </div>
+            @using (Html.BeginForm("Yeni", "Home", FormMethod.Post))
+            {
+                <div style="padding:50px;">
+                    <form class="form-group">
+                        <div>
+                            <label>Ürün Adı</label>
+                            <input type="text" name="urun_adi" class="form-control" required/>
+                        </div>
+
+                        <div style="margin-top:20px;">
+                            <label>Ürün Açıklaması</label>
+                            <input type="text" name="urun_aciklama" class="form-control" required/>
+                        </div>
+
+                        <div style="margin-top:20px;">
+                            <label>Ürün Fiyatı</label>
+                            <input type="text" name="urun_fiyat" class="form-control" required/>
+                        </div>
+
+                        <div style="margin-top:20px;">
+                            <label>Ürün Stoğu</label>
+                            <input type="text" name="stok" class="form-control" required/>
+                        </div>
+
+                        <div style="margin-top:50px;">
+                            <button type="submit" class="btn btn-info" style="color:white;">Ürünü Kaydet</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                        </div>
+                    </form>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<br />
+<br />
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Ürün Adı</td>
+            <td>Açıklama</td>
+            <td>Fiyat</td>
+            <td>Stok</td>
+            <td>Güncelle</td>
+            <td>Sil</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.UrunID</td>
+                <td>@urun.urun_adi</td>
+                <td>@urun.urun_aciklama</td>
+                <td>@urun.urun_fiyat</td>
+                <td>@urun.stok</td>
+
+                <td><a class="btn btn-primary" href="/Home/Guncelle/@urun.UrunID">Guncelle</a></td>
+
+                <td><a class="btn btn-danger" href="/Home/Sil/@urun.UrunID">Sil</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
+
+

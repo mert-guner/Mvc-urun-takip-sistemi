@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="login_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullanici_adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Urun_tbl">
+          <Key>
+            <PropertyRef Name="UrunID" />
+          </Key>
+          <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urun_adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_aciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="stok" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ProjeModelStoreContainer">
+          <EntitySet Name="login_tbl" EntityType="Self.login_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun_tbl" EntityType="Self.Urun_tbl" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="login_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Urun_tbl">
+          <Key>
+            <PropertyRef Name="UrunID" />
+          </Key>
+          <Property Name="UrunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urun_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="stok" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="login_tbl" EntityType="Self.login_tbl" />
+          <EntitySet Name="Urun_tbl" EntityType="Self.Urun_tbl" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjeModelStoreContainer" CdmEntityContainer="ProjeEntities">
+          <EntitySetMapping Name="login_tbl">
+            <EntityTypeMapping TypeName="ProjeModel.login_tbl">
+              <MappingFragment StoreEntitySet="login_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun_tbl">
+            <EntityTypeMapping TypeName="ProjeModel.Urun_tbl">
+              <MappingFragment StoreEntitySet="Urun_tbl">
+                <ScalarProperty Name="stok" ColumnName="stok" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+                <ScalarProperty Name="urun_aciklama" ColumnName="urun_aciklama" />
+                <ScalarProperty Name="urun_fiyat" ColumnName="urun_fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
